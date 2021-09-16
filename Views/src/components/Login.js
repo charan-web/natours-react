@@ -16,17 +16,17 @@ const Login = ({user}) => {
  const handleChange=(e)=>{
      let name = e.target.id
      let value = e.target.value
-     console.log(data.email)
+     
      setData({...data,[name]:value})
      
  }
  const handleClick=async (e)=>{
      e.preventDefault()
-     console.log(data)
+     
      try{
        const res= await axios({
         method:'post',
-        url:"http://127.0.0.1:8080/user/login",
+        url:"/login",
         data:{
           email:data.email,
           password:data.password
@@ -36,7 +36,7 @@ const Login = ({user}) => {
       if(res.status===200){
         showAlert('success',"Logged In")
          user.isLoggedIn=true
-         console.log(user)
+        
           if(user.props){
            window.location = user.props.location.pathname
            }else window.location = '/'
@@ -103,7 +103,7 @@ const Login = ({user}) => {
 // }
 
 const mapStateToProps = (state)=>{
-  console.log(state.user)
+  
     return {
         user:state.user
     }

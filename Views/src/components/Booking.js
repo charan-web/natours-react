@@ -9,13 +9,13 @@ import {showAlert} from "./alerts"
 // const stripee = require("stripe")
 // ("pk_test_51IwJA8SImVPQaPp7KU8HTgSvoXGZAMvkF02zfkmVRg52y2LSDqmbwrEJplGcrCdyBmOLe0LatV9mPUo2SGrl2D5c00voJ4MnPh")
 
-// console.log(process.env.STRIPE_PUBLIC_KEY)
+
 
 const Bookings = () => {
     const tourId = useParams()
-    // console.log("The%20Sea%20Explorer".replace(/%20/g, ' '))
+ 
     const url = `/booking/checkout-session/${tourId.id}`
-    console.log(url)
+    
     useEffect(()=>{
         booking()
        const scriptTag = document.createElement('script');
@@ -27,7 +27,7 @@ const Bookings = () => {
     },[url])
     
     const stripe = window.Stripe("pk_test_51IwJA8SImVPQaPp7KU8HTgSvoXGZAMvkF02zfkmVRg52y2LSDqmbwrEJplGcrCdyBmOLe0LatV9mPUo2SGrl2D5c00voJ4MnPh")
-    console.log(stripe)
+    
   
     async function booking(){
         try{

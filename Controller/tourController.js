@@ -8,13 +8,13 @@ const catchAsync = (fn) => {
 };
 
 exports.getAllTours = async (req, res, next) => {
-  console.log(req.body);
+ 
   let features = new ApiFeatures(Tour.find(), req.query)
     .filter()
     .sort()
     .limit()
     .page();
-     console.log('tours')
+   
   const tours = await features.query;
   res.status(200).json({
     status: "success",
@@ -27,7 +27,7 @@ exports.getAllTours = async (req, res, next) => {
 
 exports.getTour = catchAsync(async (req, res, next) => {
   const tourToFind = req.params.id;
-  console.log(tourToFind);
+
   // const tour = await Tour.findById(tourToFind).populate('reviews')
   const tour = await Tour.findOne({name:req.params.id}).populate('reviews')
 
@@ -45,7 +45,7 @@ exports.getTour = catchAsync(async (req, res, next) => {
 });
 
 exports.createTour = catchAsync(async (req, res, next) => {
-  console.log(req.body)
+
   const newTour = await Tour.create(req.body);
   res.status(200).json({
     status: "success",

@@ -11,7 +11,7 @@ const Tours = ({call,tour,user}) => {
   
    call()
    
-   console.log(tour) 
+  
   }, [call]);
             
   return (
@@ -113,7 +113,7 @@ const Tours = ({call,tour,user}) => {
  
 
 const mapStateToProps = (state) => {
- console.log(state.tour)  
+
   return { 
     tour : state.tour,
     user: state.user

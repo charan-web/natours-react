@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize')
 const xss = require('xss-clean')
 const hpp = require('hpp')
 const cors = require('cors')
+const compression = require('compression')
 const bookingController = require('./Controller/bookingController')
 
 const app = express()
@@ -37,7 +38,7 @@ const limiter = rateLimiter({
 app.use('/',limiter)
 app.use(helmet())
 
-
+app.use(compression())
 
 //* Routes
 const tourRouter = require("./Routes/tourRoutes")

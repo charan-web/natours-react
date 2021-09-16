@@ -12,32 +12,32 @@ const Tour = React.memo(({ user, callUser }) => {
   const [data, setData] = useState({});
 
   const tourName = useParams();
-  console.log(tourName);
+
 
   const url = `http://127.0.0.1:8080/tour/${tourName.id}`;
-  // console.log(url)
+  
   const getTour = useCallback(async () => {
     try {
       const data = await fetch(url);
       const res = await data.json();
-      console.log(res);
+      
       setData(res);
       setLoading(false);
     } catch (error) {
       console.log(error);
 
-      // console.log(err)
+    
     }
   }, [url]);
 
   useEffect(() => {
     callUser();
-    // console.log('useEffect');
+  
     getTour();
   }, [url, getTour, callUser]);
 
   let tour = data?.data?.tour;
-  console.log(tour);
+  
   if (data.status === "error") {
     return <Error value="There is No Tour with that Name" />;
   } else {

@@ -1,6 +1,6 @@
 const dotenv = require('dotenv') 
 dotenv.config({path: './config.env'})
-console.log(process.env.STRIPE_KEY)
+
 const stripe=require('stripe')(process.env.STRIPE_KEY)
 const Tour = require('./../Models/tourModel')
 const User = require('./../Models/userModel')
@@ -52,7 +52,7 @@ const bookingCheckout=async (session)=>{
 
 exports.bookingSession= catchAsync(async (req,res,next)=>{
     // //! This is a temporary solution
-    console.log("booking")
+   
     const {tour,user,price} = req.query
 
     if(!tour && !user && !price) return next()
@@ -82,7 +82,7 @@ exports.bookingSession= catchAsync(async (req,res,next)=>{
 exports.getMyTours = catchAsync(async(req,res,next)=>{
     
     const books = await Booking.find({user:req.user.id})
-    console.log("books")
+  
      if(!books) {
          return res.status(200).json({
              status:"success",

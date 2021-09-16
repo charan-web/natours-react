@@ -58,11 +58,11 @@ module.exports = (err,req,res,next)=>{
     
  
    if(process.env.NODE_ENV = "development"){
-       console.log("dev")
+      
         sendErrDev(err,res)
    }else if(process.env.NODE_ENV = "production"){
        let error = {...err}
-       console.log("pro")
+      
        if(error.name==="CastError") error = handleCastErrDB(error)
        if(error.code===11000) error = handleDupDB(error)
        if(error.name === "ValidationError") error = handleValidErrDB(error)

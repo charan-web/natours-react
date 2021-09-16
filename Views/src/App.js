@@ -31,8 +31,7 @@ const App = ({user,callUser})=>{
         user.isLoggedIn = true
         // const userInfo = jwtDecode(token)
         // const call = callUser()
-        console.log(callUser())
-        console.log(user)
+        
 
        
       }

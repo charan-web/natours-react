@@ -13,7 +13,7 @@ const Me = ({ user, callUser }) => {
   useEffect(() => {
     callUser();
   }, [callUser]);
-  console.log(user)
+  
   let form = new FormData()
   let userPhoto = useRef('')
  
@@ -37,7 +37,7 @@ const Me = ({ user, callUser }) => {
     let name = e.target.name;
     let value = e.target.value;
     
-    console.log(Obj)
+    
     if (type === "password") { 
       setPass({ ...pass, [name]: value });
     } else {
@@ -71,7 +71,7 @@ const Me = ({ user, callUser }) => {
         window.location = "/me";
       }
     } catch (err) {
-      console.log(err);
+      
       return <Error value="Please try agian later" />;
     }
   };
@@ -291,7 +291,7 @@ const Me = ({ user, callUser }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("me");
+  
   return {
     user: state.user,
   };

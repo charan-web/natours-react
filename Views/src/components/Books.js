@@ -6,10 +6,10 @@ const Books = () => {
   async  function bookings(){
       const tours= await axios({
         method:'get',
-        url:'http://127.0.0.1:8080/booking/my-tours',
+        url:'/booking/my-tours',
         
       })
-      console.log(tours)
+     
     }
    
 

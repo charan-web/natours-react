@@ -67,20 +67,20 @@ export const touReducer=(state = initialState,action)=>{
 
 
 export const callTheTour=()=> {
-    console.log("calling")
+   
    return function(dispatch){ 
        dispatch(GetTour())
-       axios.get("http://127.0.0.1:8080/tour/")
+       axios.get("/tour/")
        .then(response=>{
            const Tour = response.data.data.tours
          
            dispatch(GetTourSuccessful(Tour))
-          console.log(dispatch(GetTourSuccessful(Tour)))
+         
            
            
        }).catch(err=>{
            dispatch(GetTourFailed(err.msg))
-           console.log(initialState)
+          
        })
    }
 }

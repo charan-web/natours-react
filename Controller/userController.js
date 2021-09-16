@@ -79,7 +79,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 });
 
 exports.getUser = catchAsync(async (req, res, next) => {
-  // console.log(req.user)
+  
   if (!req.params.id) req.params.id = req.user.id;
 
   const user = await User.findById(req.params.id);

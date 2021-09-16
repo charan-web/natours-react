@@ -25,7 +25,7 @@ const logout = async ()=>{
   //   window.location = '/'
   // } catch (error) {
   //   showAlert("error","Error loggin out")
-  //   console.log(error.message)
+  
     
   // }
   localStorage.removeItem('jwt')
@@ -85,8 +85,8 @@ const logout = async ()=>{
 };
 
 const mapStateToProps = (state) =>{
-  //  console.log(state.user?.data.data.user.name.split('')[0])
-  console.log(state.user)
+ 
+ 
       return {
           user:state.user
       }

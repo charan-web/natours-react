@@ -72,17 +72,17 @@ export function useReducer(state = initialState,action){
 axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('jwt')}`
 
 export function callTheUser(){
-    console.log("calling the user")        
+       
    return function(dispatch){
        
        dispatch(GetUser())
-       axios.get(`http://127.0.0.1:8080/user/me`)
+       axios.get(`/user/me`)
        .then(response=>{
-           console.log(response)
+          
            const user = response.data
           
            dispatch(GetUserSuccessful(user))
-           console.log(dispatch(GetUserSuccessful(user)))
+          
        }).catch(err=>{
            dispatch(GetUserFailed(err.msg))
        })
