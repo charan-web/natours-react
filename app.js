@@ -55,6 +55,17 @@ app.use('/review',reviewRouter)
 app.use('/booking',bookingRouter)
 
 
+if(process.env.NODE_ENV = "production"){
+    app.use(express.static('Views/build'))
+    
+
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(__dirname,'Views','build','index.html'))
+
+    })
+}           
+ 
+ 
 
 app.all("*",(req,res,next)=>{
     const err = new Error("cant find the path")
