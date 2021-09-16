@@ -65,7 +65,7 @@ exports.bookingSession= catchAsync(async (req,res,next)=>{
     //     event = stripe.webhooks.contructEvent(
     //         req.body,
     //         signature,
-    //         stripesecretkey
+    //         process.env.STRIPE_SECRET_KEY
     //     )
     // } catch (error) {
     //     return res.status(400).send('webHook error'+ error.message)
