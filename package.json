@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "server":"nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "build": "cd Views && npm run build",
     "install-client": "cd Views && npm install",
