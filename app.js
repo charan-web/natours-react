@@ -65,7 +65,7 @@ app.all("*",(req,res,next)=>{
 app.use(globalError)
 
 if(process.env.NODE_ENV = "production"){
-    app.use(express.static('/views/build'))
+    app.use(express.static('Views/build'))
 }
 
 module.exports = app
