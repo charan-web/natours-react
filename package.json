@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "build": "cd views && npm run build",
     "install-client": "cd views && npm install",
@@ -29,5 +29,9 @@
     "sharp": "^0.29.1",
     "stripe": "^8.174.0",
     "xss-clean": "^0.1.1"
+  },
+  "engines":{
+    "node":">=10.0.0"
   }
+
 }
