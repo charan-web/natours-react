@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
-    "build": "cd views && npm run build",
-    "install-client": "cd views && npm install",
+    "build": "cd Views && npm run build",
+    "install-client": "cd Views && npm install",
     "heroku-postbuild": "npm run install-client && npm run build"
   },
   "author": "",
