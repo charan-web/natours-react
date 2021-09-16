@@ -8,7 +8,7 @@
     "start:prod": "NODE_ENV=production nodemon server.js",
     "build": "cd Views && npm run build",
     "install-client": "cd Views && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Views && npm run build --prefix Views"
   },
   "author": "",
   "license": "ISC",
