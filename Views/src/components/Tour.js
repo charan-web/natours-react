@@ -14,7 +14,7 @@ const Tour = React.memo(({ user, callUser }) => {
   const tourName = useParams();
 
 
-  const url = `http://127.0.0.1:8080/tour/${tourName.id}`;
+  const url = `/tour/${tourName.id}`;
   
   const getTour = useCallback(async () => {
     try {
