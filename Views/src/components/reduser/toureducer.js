@@ -70,7 +70,7 @@ export const callTheTour=()=> {
    
    return function(dispatch){ 
        dispatch(GetTour())
-       axios.get("/tour/")
+       axios.get("https://infinite-spire-90765.herokuapp.com/tour/")
        .then(response=>{
            const Tour = response.data.data.tours
          

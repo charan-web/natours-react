@@ -76,7 +76,7 @@ export function callTheUser(){
    return function(dispatch){
        
        dispatch(GetUser())
-       axios.get(`/user/me`)
+       axios.get(`https://infinite-spire-90765.herokuapp.com/user/me`)
        .then(response=>{
           
            const user = response.data

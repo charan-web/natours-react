@@ -14,7 +14,7 @@ const Tour = React.memo(({ user, callUser }) => {
   const tourName = useParams();
 
 
-  const url = `/tour/${tourName.id}`;
+  const url = `https://infinite-spire-90765.herokuapp.com/tour/${tourName.id}`;
   
   const getTour = useCallback(async () => {
     try {

@@ -14,7 +14,7 @@ import {showAlert} from "./alerts"
 const Bookings = () => {
     const tourId = useParams()
  
-    const url = `/booking/checkout-session/${tourId.id}`
+    const url = `https://infinite-spire-90765.herokuapp.com//booking/checkout-session/${tourId.id}`
     
     useEffect(()=>{
         booking()

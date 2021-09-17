@@ -6,7 +6,7 @@ const Books = () => {
   async  function bookings(){
       const tours= await axios({
         method:'get',
-        url:'/booking/my-tours',
+        url:'https://infinite-spire-90765.herokuapp.com/booking/my-tours',
         
       })
      

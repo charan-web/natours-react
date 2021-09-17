@@ -56,8 +56,8 @@ const Me = ({ user, callUser }) => {
     e.preventDefault();
     let url =
       type === "password"
-        ? "http://127.0.0.1:8080/user/updatepassword"
-        : "http://127.0.0.1:8080/user/updateme";
+        ? "https://infinite-spire-90765.herokuapp.com/user/updatepassword"
+        : "https://infinite-spire-90765.herokuapp.com/user/updateme";
          
     try {
       const res = await axios({
