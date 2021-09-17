@@ -26,7 +26,7 @@ const Login = ({user}) => {
      try{
        const res= await axios({
         method:'post',
-        url:"user/login",
+        url:"/user/login",
         data:{
           email:data.email,
           password:data.password
