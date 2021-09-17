@@ -18,10 +18,10 @@ const Bookings = () => {
     
     useEffect(()=>{
         booking()
-       const scriptTag = document.createElement('script');
-       scriptTag.src = "https://js.stripe.com/v3/";
-        scriptTag.async = true;
-        document.body.appendChild(scriptTag);
+    //    const scriptTag = document.createElement('script');
+    //    scriptTag.src = "https://js.stripe.com/v3/";
+    //     scriptTag.async = true;
+    //     document.body.appendChild(scriptTag);
             
        
     },[url])
