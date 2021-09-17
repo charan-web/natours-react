@@ -1,14 +1,14 @@
-import { React, useEffect, useState } from 'react';
+import { React,  useState } from 'react';
 import {connect} from "react-redux"
 import axios from 'axios';    
    
 // import { useGlobal } from './useGlobal';
 
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { showAlert } from './alerts';
 // import { showAlert } from './alerts';
 const Login = ({user}) => {
-  const history = useHistory()
+  // const history = useHistory()
   
     const [data,setData] = useState({email:"",password:""})
   

@@ -5,8 +5,8 @@ import {connect} from "react-redux"
 import { callTheUser } from './reduser/userAction';
 // import { useGlobal } from './useGlobal';
 import { showAlert } from './alerts';
-import axios from 'axios';
-import jwtDecode from 'jwt-decode'
+// import axios from 'axios';
+// import jwtDecode from 'jwt-decode'
 
 const Header = ({user,callUser}) => {
     useEffect(()=>{ 

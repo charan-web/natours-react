@@ -9,6 +9,7 @@ const Books = () => {
         url:'https://infinite-spire-90765.herokuapp.com/booking/my-tours',
         
       })
+      setTourss(tours)
      
     }
    

@@ -24,6 +24,7 @@ const Bookings = () => {
     //     document.body.appendChild(scriptTag);
             
        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     
     const stripe = window.Stripe("pk_test_51IwJA8SImVPQaPp7KU8HTgSvoXGZAMvkF02zfkmVRg52y2LSDqmbwrEJplGcrCdyBmOLe0LatV9mPUo2SGrl2D5c00voJ4MnPh")
@@ -52,6 +53,7 @@ const Bookings = () => {
         }
        
     }
+    
     
     
     

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import axios from "axios"
+// import axios from "axios"
 // import Tour from "./Tour"
 // import img from "./../img/tours/tour-2-cover.jpg"
 import { callTheTour } from './reduser/toureducer';

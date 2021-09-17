@@ -4,7 +4,7 @@ import Error from "./Error";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { showAlert } from "./alerts";
-import redux from "redux";
+// import redux from "redux";
 import { connect } from "react-redux";
 import { callTheUser } from "./reduser/userAction";
 import { Link } from "react-router-dom";
