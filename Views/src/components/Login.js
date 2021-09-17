@@ -22,7 +22,7 @@ const Login = ({user}) => {
  }
  const handleClick=async (e)=>{
      e.preventDefault()
-     
+     console.log('clicking')
      try{
        const res= await axios({
         method:'post',
@@ -55,7 +55,7 @@ const Login = ({user}) => {
         <div className="login-form">      
           <h2  className="heading-secondary ma-bt-lg">Login to your Account</h2> 
 
-          <form className="form--login" onSubmit={(e)=>handleClick(e)}>
+          <form className="form--login" >
             <div className="form__group">
               <label className="form__label" htmlFor="email">
                 Email Address
