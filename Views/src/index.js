@@ -8,17 +8,15 @@ import {Provider} from "react-redux"
 import store from "./components/reduser/store"
 // import {AppProvider} from "./components/useGlobal"
 ReactDOM.render(
-  <React.StrictMode>
     
     <Provider store = {store}>
     <Router>
       
     <App />
     
-    </Router>
-    </Provider>
-   
-  </React.StrictMode>,
+     </Router>
+     </Provider>
+  ,
   document.getElementById('root')
 );
 
