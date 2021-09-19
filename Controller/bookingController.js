@@ -1,7 +1,7 @@
 const dotenv = require('dotenv') 
 dotenv.config({path: './config.env'})
 
-const stripe=require('stripe')(process.env.STRIPE_KEY)
+const stripe=require('stripe')(process.env.STRIPE_SECRET_KEY)
 const Tour = require('./../Models/tourModel')
 const User = require('./../Models/userModel')
 const catchAsync = require('./../Utilities/catch')
@@ -65,7 +65,7 @@ exports.bookingSession= catchAsync(async (req,res,next)=>{
         event = stripe.webhooks.contructEvent(
             req.body,
             signature,
-            process.env.STRIPE_SECRET_KEY
+            process.env.STRIPE_KEY
         )
     } catch (error) {
         return res.status(400).send('webHook error'+ error.message)
