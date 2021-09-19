@@ -12,8 +12,17 @@ const bookingController = require('./Controller/bookingController')
 
 const app = express()
 app.use(cors())  
+// server.js or app.js
 
 
+
+
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });     
+console.log('hi')
 
 
 app.post('/webhook-checkout',express.raw({type:'application/json'}),bookingController.bookingSession)

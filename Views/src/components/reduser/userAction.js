@@ -71,6 +71,8 @@ export function useReducer(state = initialState,action){
 
 axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('jwt')}`
 
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
+
 export function callTheUser(){
        
    return function(dispatch){
