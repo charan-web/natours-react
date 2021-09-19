@@ -16,7 +16,7 @@ app.use(cors())
 
 
 
-// app.post('/webhook-checkout',express.raw({type:'application/json'}),bookingController.bookingSession)
+app.post('/webhook-checkout',express.raw({type:'application/json'}),bookingController.bookingSession)
 
 app.use(express.json({limit:'10kb'}))
 app.use(express.urlencoded({extended:true,limit:'10kb'}))

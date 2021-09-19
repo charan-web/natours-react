@@ -51,30 +51,30 @@ const bookingCheckout=async (session)=>{
 }
 
 exports.bookingSession= catchAsync(async (req,res,next)=>{
-    // //! This is a temporary solution
+    // // //! This is a temporary solution
    
-    const {tour,user,price} = req.query
+    // const {tour,user,price} = req.query
 
-    if(!tour && !user && !price) return next()
-    await Booking.create({tour,user,price})
+    // if(!tour && !user && !price) return next()
+    // await Booking.create({tour,user,price})
 
-    res.redirect(req.originalUrl.split('?')[0])
-    // const signature = req.headers['stripe-signature']
-    // let event 
-    // try {
-    //     event = stripe.webhooks.contructEvent(
-    //         req.body,
-    //         signature,
-    //         process.env.STRIPE_SECRET_KEY
-    //     )
-    // } catch (error) {
-    //     return res.status(400).send('webHook error'+ error.message)
-    // }
-    // if(event ==='checkout.session.completed'){
-    //     bookingCheckout(event.data.object)
-    // }
+    // res.redirect(req.originalUrl.split('?')[0])
+    const signature = req.headers['stripe-signature']
+    let event 
+    try {
+        event = stripe.webhooks.contructEvent(
+            req.body,
+            signature,
+            process.env.STRIPE_SECRET_KEY
+        )
+    } catch (error) {
+        return res.status(400).send('webHook error'+ error.message)
+    }
+    if(event ==='checkout.session.completed'){
+        bookingCheckout(event.data.object)
+    }
 
-    // res.status(200).json({received:true})
+    res.status(200).json({received:true})
 
 })
 
