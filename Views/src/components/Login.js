@@ -22,7 +22,7 @@ const Login = ({user}) => {
  }
  const handleClick=async (e)=>{
      e.preventDefault()
-     console.log('clicking')
+    //  console.log('clicking')
      try{
        const res= await axios({
         method:'post',
