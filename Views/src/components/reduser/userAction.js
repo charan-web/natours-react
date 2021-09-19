@@ -80,9 +80,9 @@ export function callTheUser(){
        .then(response=>{
           
            const user = response.data
-          
+         
            dispatch(GetUserSuccessful(user))
-          
+           
        }).catch(err=>{
            dispatch(GetUserFailed(err.msg))
        })

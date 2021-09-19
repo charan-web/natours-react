@@ -21,6 +21,7 @@ userRouter.patch('/updateme',authController.protect,userController.uploadPhoto,u
 
 
 
+
 userRouter.get("/", userController.getAllUsers);  
 userRouter.get("/:id",userController.getUser);
 

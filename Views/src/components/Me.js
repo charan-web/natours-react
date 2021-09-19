@@ -33,7 +33,6 @@ const Me = ({ user, callUser }) => {
     passwordConfirm: "",
   });  
   const handleChange = (e, type) => {
-    
     let name = e.target.name;
     let value = e.target.value;
     
@@ -50,9 +49,13 @@ const Me = ({ user, callUser }) => {
    
     
   const send = async (e, data, type) => {
-    form.append('photo',Obj.photo) 
-    form.append('email',Obj.email)
-    form.append('name',Obj.name) 
+    // form.append('photo',Obj.photo) 
+    // form.append('email',Obj.email)
+    // form.append('name',Obj.name) 
+    form.photo = Obj.photo
+    form.email = Obj.email
+    form.name = Obj.name
+   
     e.preventDefault();
     let url =
       type === "password"
@@ -61,9 +64,9 @@ const Me = ({ user, callUser }) => {
          
     try {
       const res = await axios({
-        method: "patch",    
+        method:'patch' ,    
         url: url,
-        data:form
+        data:type==='password'? {currentpassword:pass.currentpassword,password:pass.password,passwordConfirm:pass.passwordConfirm} : {name:form.name,email:form.email,photo:form.photo}
       });
       
       if (res.status === "success") {
@@ -107,7 +110,7 @@ const Me = ({ user, callUser }) => {
                 </li>
               </ul>
               {/* Admin page */}
-              {`${user.data.data.user.role}` === "admin" ? (
+              {`${user?.data?.data?.user?.role}` === "admin" ? (
                 <div className="admin-nav">
                   <h5 className="admin-nav__heading">Admin</h5>
                   <ul className="side-nav">
@@ -136,13 +139,13 @@ const Me = ({ user, callUser }) => {
                       </a>
                     </li>
                   </ul>
-                </div>
+                </div> 
               ) : null}
             </nav>
             <div className="user-view__content">
               <div className="user-view__form-container">
                 <h2 className="heading-secondary ma-bt-md">
-                  Your Accoount Settings {`Mr.`}
+                  Your Accoount Settings {`Mr.${user?.data?.data?.user?.name.split(' ')}`}
                 </h2>
                 <form className="form form-user-data">
                   <div className="form__group">
@@ -176,7 +179,7 @@ const Me = ({ user, callUser }) => {
                   <div className="form__group form__photo-upload">
                     <img
                       className="form__user-photo"
-                      src={`/img/users/${user?.data.data.user.photo}`}
+                      src={`/img/users/${user?.data?.data?.user?.photo}`}
                       alt="user"
                     />
                     <input

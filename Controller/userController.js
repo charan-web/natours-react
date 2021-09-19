@@ -37,7 +37,7 @@ exports.resizePhoto = catchAsync(async (req, res, next) => {
   await sharp(req.file.buffer)
     .resize(500, 500)
     .toFormat("jpeg")
-    .toFile(`views/public/img/users/${req.file.filename}`);
+    .toFile(`Views/public/img/users/${req.file.filename}`);
   next();
 });
 
@@ -63,18 +63,18 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
 });
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-  
+console.log(req)
   const filterObj = filterObject(req.body, "name", "email");
   if (req.file) filterObj.photo = req.file.filename;
-  const user = await User.findByIdAndUpdate(req.user._id, filterObj, {
+  const user = await User.findByIdAndUpdate(req.user.id, filterObj, {
     new: true,
-    runValidators: true,
+    runValidators: true,  
   });
   res.status(200).json({
     status: "success",
-    data: {
-      user,
-    },
+    data: { 
+      user, 
+    },        
   });
 });
 
