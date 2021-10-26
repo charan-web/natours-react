@@ -1,9 +1,14 @@
 const mongoose = require('mongoose')
 const express = require('express')
-const app = require('./app')   
-const dotenv = require('dotenv') 
+const app = require('./app')  
+const cors = require('cors') 
+const dotenv = require('dotenv')
+const morgan = require('morgan')
 dotenv.config({path: './config.env'})
 // const path = require('path')
+app.options('*',cors())
+app.use(morgan('common'))
+
 
 
 process.on('uncaughtException',err=>{

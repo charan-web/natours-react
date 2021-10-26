@@ -238,12 +238,12 @@ const Tour = React.memo(({ user, callUser }) => {
                   {user.isLoggedIn ? (    
                     <Link
                       to={`/booking/${tour.id}`}
-                      className="btn btn--green span-all-rows"
+                      className="btn.btn--green span-all-rows"
                     >
                       Book tour now!
                     </Link>
                   ) : (
-                    <Link to="/login" clasName="btn btn--green span-all-rows">
+                    <Link to="/login" clasName="btn.btn--green span-all-rows">
                       Login to Book Tour
                     </Link>
                   )}

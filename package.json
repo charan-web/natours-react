@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server":"nodemon server.js",
+    "server": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "build": "cd Views && npm run build",
     "install-client": "cd Views && npm install",
@@ -25,14 +25,14 @@
     "hpp": "^0.2.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.0",
+    "morgan": "^1.10.0",
     "multer": "^1.4.3",
     "nodemailer": "^6.6.3",
     "sharp": "^0.29.1",
     "stripe": "^8.174.0",
     "xss-clean": "^0.1.1"
   },
-  "engines":{
-    "node":"^10"
+  "engines": {
+    "node": "^10"
   }
-
 }
