@@ -2,6 +2,7 @@ const express = require('express')
 const globalError = require('./Controller/errorController')
 const AppError = require("./Utilities/APIclass")
 const rateLimiter = require('express-rate-limit')
+const morgan = require('morgan')
 const helmet = require('helmet')
 const mongoSanitize = require('express-mongo-sanitize')
 const xss = require('xss-clean')
@@ -12,17 +13,21 @@ const compression = require('compression')
 const bookingController = require('./Controller/bookingController')
 
 const app = express()
+
+app.use(cors())
+app.use(morgan('common'))
  
 // server.js or app.js
 
 
 
-app.options('*',cors())
+
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //   next();
-// });     
+// }); 
+
 
 
 
@@ -64,7 +69,6 @@ app.use("/tour", tourRouter)
 app.use('/user',userRouter)
 app.use('/review',reviewRouter)
 app.use('/booking',bookingRouter)
-
 
 if(process.env.NODE_ENV = "production"){
     app.use(express.static('Views/build'))

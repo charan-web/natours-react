@@ -10,7 +10,9 @@ import { showAlert } from './alerts';
 
 const Header = ({user,callUser}) => {
     useEffect(()=>{ 
-     callUser()
+      if(localStorage.getItem('jwt')){
+        callUser()
+      }
      
    
           

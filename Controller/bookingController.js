@@ -4,16 +4,21 @@ dotenv.config({path: './config.env'})
 const stripe=require('stripe')(process.env.STRIPE_SECRET_KEY)
 const Tour = require('./../Models/tourModel')
 const User = require('./../Models/userModel')
-const catchAsync = require('./../Utilities/catch')
+// const catchAsync = require('./../Utilities/catch')
 const AppError = require('./../Utilities/APIclass')
 const Booking = require('./../Models/bookingModel')
+const catchAsync = (fn) =>{
+    return (req,res,next)=>{
+        fn(req,res,next).catch(err=>next(err))
+    }
+} 
 
 exports.getCheckoutSession = catchAsync(async(req,res,next)=>{
     //* 1 Get the tour id from params
-
+    console.log('booking')
     const tour = await Tour.findById(req.params.tourid)
 
-
+    
     //* 2 create check-out session
 
     const session = await stripe.checkout.sessions.create({
@@ -34,6 +39,7 @@ exports.getCheckoutSession = catchAsync(async(req,res,next)=>{
         ]
 
     })
+   
     res.status(200).json({
         status:'success',
         session
