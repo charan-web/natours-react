@@ -69,7 +69,7 @@ const bookingRouter = require('./Routes/bookingRoutes')
 app.use("/tour", tourRouter)
 app.use('/user',userRouter)
 app.use('/review',reviewRouter)
-app.use('booking',bookingRouter)
+app.use('/booking',bookingRouter)
 
 if(process.env.NODE_ENV = "production"){
     app.use(express.static('Views/build'))
