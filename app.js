@@ -14,10 +14,8 @@ const bookingController = require('./Controller/bookingController')
 
 const app = express()
 
-app.use(cors({
-    credentials:true,
-    origin:"https://dreamy-shaw-9ac27c.netlify.app/booking/5c88fa8cf4afda39709c295a/"
-}))
+// app.use(cors())
+app.use(cors({ origin: 'https://dreamy-shaw-9ac27c.netlify.app/' , credentials :  true}));
 app.use(morgan('common'))
  
 // server.js or app.js

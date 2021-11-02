@@ -29,7 +29,7 @@ const Bookings = () => {
     
     const stripe = window.Stripe("pk_test_51IwJA8SImVPQaPp7KU8HTgSvoXGZAMvkF02zfkmVRg52y2LSDqmbwrEJplGcrCdyBmOLe0LatV9mPUo2SGrl2D5c00voJ4MnPh")
     
-  
+    axios.defaults.headers['Access-Control-Allow-Origin'] = 'https://dreamy-shaw-9ac27c.netlify.app/'
     async function booking(){
         try{
         
@@ -37,7 +37,10 @@ const Bookings = () => {
            const session = await axios({
                method:"get",
                url:url,
-               withCredentials:true
+               withCredentials:true,
+            //    headers:{
+            //        "Access-Control-Allow-Origin" :"https://dreamy-shaw-9ac27c.netlify.app/booking/5c88fa8cf4afda39709c295a/"
+            //    }
            })
         //* Charge the credit card
              await stripe.redirectToCheckout({
