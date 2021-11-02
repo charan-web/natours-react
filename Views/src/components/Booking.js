@@ -37,7 +37,7 @@ const Bookings = () => {
            const session = await axios({
                method:"get",
                url:url,
-               withCredentials:true,
+            //    withCredentials:true,
             //    headers:{
             //        "Access-Control-Allow-Origin" :"https://dreamy-shaw-9ac27c.netlify.app/booking/5c88fa8cf4afda39709c295a/"
             //    }
