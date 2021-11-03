@@ -7,8 +7,6 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
-    "build": "cd Views && npm run build",
-    "install-client": "cd Views && npm install",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Views && npm run build --prefix Views"
   },
   "author": "",
