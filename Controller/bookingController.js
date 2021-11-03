@@ -23,10 +23,10 @@ exports.getCheckoutSession = catchAsync(async(req,res,next)=>{
 
     const session = await stripe.checkout.sessions.create({
         payment_method_types:['card'],
-        // success_url:`https://dreamy-shaw-9ac27c.netlify.app/your-tours`,
-        // cancel_url:`${req.protocol}://${req.get('host')}/`,
-        // customer_email:req.user.email,
-        // client_reference_id:req.params.tourid,
+        success_url:`${req.protocol}://${req.get('host')}/my-tours`,
+        cancel_url:`${req.protocol}://${req.get('host')}/`,
+        customer_email:req.user.email,
+        client_reference_id:req.params.tourid,
         line_items:[
             {
                 name:`${tour.name} Tour`,
