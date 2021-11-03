@@ -20,7 +20,8 @@ dotenv.config({path: './config.env'})
 // app.use(cors())
 app.use(cors());
 app.use(morgan('common'))
-const stripe=require('stripe')(process.env.STRIPE_SECRET_KEY)
+// const stripe=require('stripe')(process.env.STRIPE_SECRET_KEY)
+const stripe = require('stripe')("sk_test_51IwJA8SImVPQaPp710qBSjLx2d4zxKZRpo7OfBzLCqouain69Jtk7iyuWz917J5nVsdfMe4MeeDwhsAr0XdKeTeb00rACN4L3J")
  
 // server.js or app.js
 
