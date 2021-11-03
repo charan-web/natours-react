@@ -11,7 +11,7 @@ const path = require('path')
 const cors = require('cors')
 const compression = require('compression')
 const bookingController = require('./Controller/bookingController')
-
+const bodyParser = require('body-parser')
 const app = express()
 
 // app.use(cors())
@@ -32,7 +32,7 @@ app.use(morgan('common'))
 
 
 
-app.post('/webhook-checkout',express.raw({type:'application/json'}),bookingController.bookingSession)
+app.post('/webhook-checkout',bodyParser.raw({type:'application/json'}),bookingController.bookingSession)
 
 app.use(express.json({limit:'10kb'}))
 app.use(express.urlencoded({extended:true,limit:'10kb'}))
