@@ -49,7 +49,7 @@ exports.getCheckoutSession = catchAsync(async(req,res,next)=>{
     //* 3 send the session as response
 })
 
-exports.bookingCheckout=async (session)=>{
+const bookingCheckout=async (session)=>{
     const tour = session.client_reference_id 
     const user = (await User.findOne({email:session. customer_email})).id
     const price = session.display_items[0].amount / 100 
