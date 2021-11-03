@@ -78,7 +78,7 @@ exports.bookingSession= catchAsync(async (req,res,next)=>{
     } catch (error) {
         return res.status(400).send('webHook error'+ error.message)
     }
-    if(event ==='checkout.session.completed'){
+    if(event.type ==='checkout.session.completed'){
         console.log('payment success')
         bookingCheckout(event.data.object)
     }
