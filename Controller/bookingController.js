@@ -67,7 +67,7 @@ exports.bookingSession= catchAsync(async (req,res,next)=>{
     // await Booking.create({tour,user,price})
 
     // res.redirect(req.originalUrl.split('?')[0])
-    const signature = req.headers['stripe-signature'].replace('[',' ').repalce(']'," ").trim()
+    const signature = req.headers['stripe-signature'].trim()
     let event 
     try {
         event = stripe.webhooks.constructEvent(
