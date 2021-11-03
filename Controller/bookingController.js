@@ -72,7 +72,7 @@ exports.bookingSession= catchAsync(async (req,res,next)=>{
     try {
         event = stripe.webhooks.constructEvent(
             req.body,
-            // signature,
+            signature,
             process.env.STRIPE_KEY
         )
     } catch (error) {
