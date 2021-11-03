@@ -5,7 +5,7 @@ const bookingRoute = express.Router()
 
 
 
-bookingRoute.get('/my-tours',authController.protect, bookingController.getMyTours)
+bookingRoute.get('/my-tours', bookingController.getMyTours)
 
 bookingRoute.get('/checkout-session/:tourid',authController.protect,bookingController.getCheckoutSession)
 
