@@ -28,11 +28,12 @@ app.use(morgan('common'))
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //   next();
 // }); 
+//  "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Views && npm run build --prefix Views"
 
 
 
 
-// app.post('/webhook-checkout',express.raw({type:'application/json'}),bookingController.bookingSession)
+app.post('/webhook-checkout',express.raw({type:'application/json'}),bookingController.bookingSession)
 
 app.use(express.json({limit:'10kb'}))
 app.use(express.urlencoded({extended:true,limit:'10kb'}))
