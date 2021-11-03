@@ -71,7 +71,7 @@ exports.bookingSession=  (req,res,next)=>{
     try {
         event = stripe.webhooks.constructEvent(
             req.body,
-            req.headers['stripe-signature'],
+            // req.headers['stripe-signature'],
             process.env.STRIPE_KEY
         )
     } catch (error) {
