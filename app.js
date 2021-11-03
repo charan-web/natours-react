@@ -32,7 +32,7 @@ app.use(morgan('common'))
 
 
 
-app.post('/webhook-checkout',bodyParser.raw({type:'application/json'}),bookingController.bookingSession)
+app.post('/webhook-checkout',expressr.raw({type:'application/json'}),bookingController.bookingSession)
 
 app.use(express.json({limit:'10kb'}))
 app.use(express.urlencoded({extended:true,limit:'10kb'}))
