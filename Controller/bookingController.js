@@ -65,25 +65,25 @@ exports.bookingCheckout=async (session)=>{
     // res.redirect(req.originalUrl.split('?')[0])
     // const signature = req.headers['stripe-signature']
 
-// exports.bookingSession=  (req,res,next)=>{
-//     let event 
-//     try {
-//         event = stripe.webhooks.constructEvent(
-//             req.body,
-//             // req.headers['stripe-signature'],
-//             process.env.STRIPE_KEY
-//         )
-//     } catch (error) {
-//         return res.status(400).send('webHook error'+ error.message)
-//     }
-//     if(event.type ==='checkout.session.completed'){
-//         console.log('payment success')
-//         bookingCheckout(event.data.object)
-//     }
+exports.bookingSession=  (req,res,next)=>{
+    let event 
+    try {
+        event = stripe.webhooks.constructEvent(
+            req.body,
+            req.headers['stripe-signature'],
+            process.env.STRIPE_KEY
+        )
+    } catch (error) {
+        return res.status(400).send('webHook error'+ error.message)
+    }
+    if(event.type ==='checkout.session.completed'){
+        console.log('payment success')
+        bookingCheckout(event.data.object)
+    }
 
-//     res.status(200).json({received:true})
+    res.status(200).json({received:true})
 
-// }
+}
 
 
 exports.getMyTours = catchAsync(async(req,res,next)=>{
