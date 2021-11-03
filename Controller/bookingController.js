@@ -58,8 +58,7 @@ const bookingCheckout=async (session)=>{
 
 }
 
-exports.bookingSession= catchAsync(async (req,res,next)=>{
-    // // //! This is a temporary solution
+exports.bookingSession=  (req,res,next)=>{
    
     // const {tour,user,price} = req.query
 
@@ -85,7 +84,7 @@ exports.bookingSession= catchAsync(async (req,res,next)=>{
 
     res.status(200).json({received:true})
 
-})
+}
 
 
 exports.getMyTours = catchAsync(async(req,res,next)=>{
