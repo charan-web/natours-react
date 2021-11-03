@@ -2,6 +2,7 @@ const dotenv = require('dotenv')
 dotenv.config({path: './config.env'})
 
 const stripe=require('stripe')(process.env.STRIPE_SECRET_KEY)
+console.log("stripe key:"+process.env.STRIPE_SECRER_KEY)
 const Tour = require('./../Models/tourModel')
 const User = require('./../Models/userModel')
 // const catchAsync = require('./../Utilities/catch')
@@ -69,7 +70,7 @@ exports.bookingSession= catchAsync(async (req,res,next)=>{
     const signature = req.headers['stripe-signature']
     let event 
     try {
-        event = stripe.webhooks.contructEvent(
+        event = stripe.webhooks.constructEvent(
             req.body,
             signature,
             process.env.STRIPE_KEY
