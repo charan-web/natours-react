@@ -52,6 +52,7 @@ const bookingCheckout=async (session)=>{
     const tour = session.client_reference_id 
     const user = (await User.findOne({email:session. customer_email})).id
     const price = session.display_items[0].amount / 100 
+    console.log("creating a book tour")
     await Booking.create({tour,user,price})
 
 }
@@ -77,6 +78,7 @@ exports.bookingSession= catchAsync(async (req,res,next)=>{
         return res.status(400).send('webHook error'+ error.message)
     }
     if(event ==='checkout.session.completed'){
+        console.log('payment success')
         bookingCheckout(event.data.object)
     }
 
