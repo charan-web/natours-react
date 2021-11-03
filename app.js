@@ -43,7 +43,8 @@ app.post('/webhook-checkout',express.raw({type:'application/json'}),  (req,res,n
         event = stripe.webhooks.constructEvent(
             req.body,
             req.headers['stripe-signature'],
-            process.env.STRIPE_KEY
+            'whsec_yHWw4MY3F1CWqwTIWX1hHwKdkFebgXkH'
+            // process.env.STRIPE_KEY
         )
     } catch (error) {
         return res.status(400).send('webHook error'+ error.message)
