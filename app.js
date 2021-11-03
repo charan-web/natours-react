@@ -13,10 +13,14 @@ const compression = require('compression')
 const bookingController = require('./Controller/bookingController')
 const bodyParser = require('body-parser')
 const app = express()
+const dotenv = require('dotenv')
+
+dotenv.config({path: './config.env'})
 
 // app.use(cors())
 app.use(cors());
 app.use(morgan('common'))
+const stripe=require('stripe')(process.env.STRIPE_SECRET_KEY)
  
 // server.js or app.js
 
