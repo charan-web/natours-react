@@ -33,7 +33,25 @@ app.use(morgan('common'))
 
 
 
-app.post('/webhook-checkout',express.raw({type:'application/json'}),bookingController.bookingSession)
+app.post('/webhook-checkout',express.raw({type:'application/json'}),  (req,res,next)=>{
+    let event 
+    try {
+        event = stripe.webhooks.constructEvent(
+            req.body,
+            req.headers['stripe-signature'],
+            process.env.STRIPE_KEY
+        )
+    } catch (error) {
+        return res.status(400).send('webHook error'+ error.message)
+    }
+    if(event.type ==='checkout.session.completed'){
+        console.log('payment success')
+        bookingController.bookingCheckout(event.data.object)
+    }
+
+    res.status(200).json({received:true})
+
+})
 
 app.use(express.json({limit:'10kb'}))
 app.use(express.urlencoded({extended:true,limit:'10kb'}))
