@@ -13,7 +13,7 @@ const bookingController = require('./../Controller/bookingController')
 
 tourRouter.use('/:id/reviews',reviewRouter)
 
-tourRouter.route("/").get(bookingController.bookingSession,tourController.getAllTours).post(tourController.createTour)
+tourRouter.route("/").get(tourController.getAllTours).post(tourController.createTour)
 
 
 //! remove protect route
