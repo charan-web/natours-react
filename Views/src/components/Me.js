@@ -92,7 +92,7 @@ const Me = ({ user, callUser }) => {
                   </a>
                 </li>
                 <li className="side-nav--active">
-                  <Link to="/bookings">
+                  <Link to="/my-tours">
                     svg use(xlink:href='img/icons.svg#icon-briefcase') | My
                     Bookings
                   </Link>
