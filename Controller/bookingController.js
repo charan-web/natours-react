@@ -56,9 +56,9 @@ exports.bookingCheckout=async (session)=>{
         const price = session.list_items[0].amount / 100 
         await Booking.create({tour,user,price})
         console.log("created a book tour")
-        res.status(200).send("Tour Booked")
+       
     }catch(err){
-        res.status(400).send(err)
+        console.log(err)
     }
    
 
