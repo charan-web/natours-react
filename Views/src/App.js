@@ -13,6 +13,7 @@ import Tour from './components/Tour';
 // import ProtectedRoute from './components/ProtectedRoute';
 // import Error from './components/Error'
 import Bookings from './components/Booking';
+import BookedTours from './components/BookedTours'
 // // import axios from "axios"\
 import Books from "./components/Books"
 // axios.defaults.withCredentials=true
@@ -51,7 +52,7 @@ const App = ({user,callUser})=>{
       <Route exact path="/me"><Me/></Route>  
       <Route exact path="/login"><Login /></Route>  
        <Route exact path="/bookings"><Books/></Route>
-       <Route exact path="/my-tours"><Books/></Route>
+       <Route exact path="/my-tours"><BookedTours/></Route>
       <Route exact path="/booking/:id"><Bookings/></Route> 
       
       
