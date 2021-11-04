@@ -50,11 +50,17 @@ exports.getCheckoutSession = catchAsync(async(req,res,next)=>{
 })
 
 exports.bookingCheckout=async (session)=>{
-    const tour = session.client_reference_id 
-    const user = (await User.findOne({email:session.customer_email})).id
-    const price = session.display_items[0].amount / 100 
-    console.log("creating a book tour")
-    await Booking.create({tour,user,price})
+    try{
+        const tour = session.client_reference_id 
+        const user = (await User.findOne({email:session.customer_email})).id
+        const price = session.list_items[0].amount / 100 
+        await Booking.create({tour,user,price})
+        console.log("created a book tour")
+        res.status(200).send("Tour Booked")
+    }catch(err){
+        res.status(400).send(err)
+    }
+   
 
 }
   // const {tour,user,price} = req.query
