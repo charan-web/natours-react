@@ -50,8 +50,10 @@ const App = ({user,callUser})=>{
       {/* <ProtectedRoute exact path="/me" component={Me}/> */}
       <Route exact path="/me"><Me/></Route>  
       <Route exact path="/login"><Login /></Route>  
+       <Route exact path="/bookings"><Books/></Route>
+       <Route exact path="/my-tours"><Books/></Route>
       <Route exact path="/booking/:id"><Bookings/></Route> 
-      <Route exact path="/bookings"><Books/></Route> 
+      
       
     </Switch>
     
