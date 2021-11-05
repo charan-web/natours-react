@@ -13,7 +13,7 @@ const Header = ({user,callUser}) => {
       if(localStorage.getItem('jwt')){
         callUser()
       }
-     
+  
    
           
     },[callUser])

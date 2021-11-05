@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Tours from "./Tours"
+// import Tours from "./Tours"
 import {Link} from "react-router-dom"
 axios.defaults.headers['authorization'] = `Bearer ${localStorage.getItem('jwt')}`
 const BookedTours = () => {

@@ -37,7 +37,7 @@ exports.resizePhoto = catchAsync(async (req, res, next) => {
   await sharp(req.file.buffer)
     .resize(500, 500)
     .toFormat("jpeg")
-    .toFile(`Views/public/img/users/${req.file.filename}`);
+    .toFile(`public/img/users/${req.file.filename}`);
   next();
 });
 

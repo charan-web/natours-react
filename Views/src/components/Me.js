@@ -35,8 +35,6 @@ const Me = ({ user, callUser }) => {
   const handleChange = (e, type) => {
     let name = e.target.name;
     let value = e.target.value;
-    
-    
     if (type === "password") { 
       setPass({ ...pass, [name]: value });
     } else {
@@ -49,12 +47,19 @@ const Me = ({ user, callUser }) => {
    
     
   const send = async (e, data, type) => {
-    // form.append('photo',Obj.photo) 
-    // form.append('email',Obj.email)
-    // form.append('name',Obj.name) 
-    form.photo = Obj.photo
-    form.email = Obj.email
-    form.name = Obj.name
+    const form = new FormData()
+    form.append('photo',Obj.photo) 
+    form.append('email',Obj.email)
+    form.append('name',Obj.name) 
+    console.log(Array.from(form))
+
+    for(let obj of form){
+      console.log(obj)
+    }
+
+    // form.photo = Obj.photo
+    // form.email = Obj.email
+    // form.name = Obj.name
    
     e.preventDefault();
     let url =
@@ -66,12 +71,16 @@ const Me = ({ user, callUser }) => {
       const res = await axios({
         method:'patch' ,    
         url: url,
-        data:type==='password'? {currentpassword:pass.currentpassword,password:pass.password,passwordConfirm:pass.passwordConfirm} : {name:form.name,email:form.email,photo:form.photo}
+        headers: { "Content-Type": "multipart/form-data" },
+        data:type==='password'? {currentpassword:pass.currentpassword,password:pass.password,passwordConfirm:pass.passwordConfirm} : 
+        form
+        // {name:form.name,email:form.email,photo:form.photo}
       });
       
       if (res.status === "success") {
-        showAlert("success", "updated successfully");
         window.location = "/me";
+        showAlert("success", "updated successfully");
+        
       }
     } catch (err) {
       

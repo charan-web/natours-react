@@ -82,7 +82,7 @@ export function callTheUser(){
        .then(response=>{
           
            const user = response.data
-         
+         console.log(user) 
            dispatch(GetUserSuccessful(user))
            
        }).catch(err=>{
